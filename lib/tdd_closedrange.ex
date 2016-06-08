@@ -9,7 +9,7 @@ defmodule TddClosedrange do
   def range(lower, upper) do
     cond do
       lower > upper -> raise(ArgumentError, "1st argument should lower than 2nd argument")
-      true -> {lower, upper}
+      true          -> {lower, upper}
     end
   end
 
@@ -27,7 +27,7 @@ defmodule TddClosedrange do
     cond do
       value < lower -> false
       value > upper -> false
-      true -> true
+      true          -> true
     end
   end
 
