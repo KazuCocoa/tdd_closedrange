@@ -5,8 +5,13 @@ defmodule TddClosedrange do
   @type upper :: integer
   @type lower :: integer
 
-  @spec range(upper, lower) :: {upper, lower}
-  def range(lower, upper), do: {lower, upper}
+  @spec range(lower, upper) :: {lower, upper}
+  def range(lower, upper) do
+    cond do
+      lower > upper -> raise(ArgumentError, "1st argument should lower than 2nd argument")
+      true -> {lower, upper}
+    end
+  end
 
   @spec lower(TddClosedrange.t) :: lower
   def lower({lower, _}), do: lower
