@@ -4,8 +4,8 @@ defmodule TddClosedrangeTest do
   alias TddClosedrange, as: TC
 
   test "get lower bound" do
-    upper_bound = TC.range(1, 3) |> TC.lower
-    assert upper_bound == 1
+    lower_bound = TC.range(1, 3) |> TC.lower
+    assert lower_bound == 1
   end
 
   test "get upper bound" do
@@ -14,8 +14,8 @@ defmodule TddClosedrangeTest do
   end
 
   test "get upper string" do
-    upper_bound = TC.range(3, 8) |> TC.to_string
-    assert upper_bound == "[3,8]"
+    string = TC.range(3, 8) |> TC.to_string
+    assert string == "[3,8]"
   end
 
 
@@ -25,5 +25,15 @@ defmodule TddClosedrangeTest do
       fn ->
         TC.range(12, 5)
       end)
+  end
+
+  describe("#contain some value in the range") do
+    test "scceed" do
+      assert TC.range(3, 8) |> TC.contain(5) == true
+    end
+
+    test "failed because out of range too lower" do
+      assert TC.range(3, 8) |> TC.contain(-1) == false
+    end
   end
 end

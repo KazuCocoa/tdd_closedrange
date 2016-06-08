@@ -22,4 +22,13 @@ defmodule TddClosedrange do
   @spec to_string(TddClosedrange.t) :: String.t
   def to_string({lower, upper}), do: "[#{lower},#{upper}]"
 
+  @spec contain(TddClosedrange.t, integer) :: boolean
+  def contain({lower, upper}, value) do
+    cond do
+      value < lower -> false
+      value > upper -> false
+      true -> true
+    end
+  end
+
 end
