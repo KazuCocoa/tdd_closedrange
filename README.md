@@ -1,6 +1,6 @@
 # TddClosedrange
 
-**TODO: Add description**
+This library is sample for tdd boot camp
 
 ## Installation
 
